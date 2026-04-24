@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Apae</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 24px;
+      color: #1d1d1f;
+      line-height: 1.7;
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    h2 { font-size: 18px; font-weight: 600; margin-top: 32px; }
+    p, li { font-size: 15px; color: #3a3a3c; }
+    .updated { font-size: 13px; color: #8e8e93; margin-bottom: 32px; }
+    a { color: #0071e3; text-decoration: none; }
+    .lang-switcher {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .lang-btn {
+      padding: 6px 16px;
+      border: 1px solid #d1d1d6;
+      border-radius: 20px;
+      background: none;
+      font-size: 14px;
+      cursor: pointer;
+      color: #3a3a3c;
+    }
+    .lang-btn.active {
+      background: #1d1d1f;
+      color: #fff;
+      border-color: #1d1d1f;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item p { margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="switchLang('zh')">简体中文</button>
+    <button class="lang-btn" onclick="switchLang('en')">English</button>
+  </div>
+
+  <!-- 简体中文 -->
+  <div id="zh" class="lang-content active">
+    <h1>技术支持</h1>
+    <p class="updated">Apae · iOS 17.0+</p>
+
+    <p>如果你在使用 Apae 时遇到问题，请查阅以下常见问题，或通过邮件联系我们。</p>
+
+    <h2>常见问题</h2>
+
+    <div class="faq-item">
+      <strong>为什么 App 无法屏蔽应用？</strong>
+      <p>Apae 需要"屏幕使用时间"权限才能正常工作。请前往设置 → 屏幕使用时间，确认已授权 Apae 使用家庭控制功能。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>规则已启用，但应用没有被锁定？</strong>
+      <p>请确认规则已选择目标应用，且当前时间在规则的限制范围内。屏蔽生效可能有约 10 秒的延迟。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>如何解除所有限制？</strong>
+      <p>在规则列表中关闭或删除对应规则即可立即解除屏蔽。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>忘记了 PIN 码怎么办？</strong>
+      <p>请前往设置 → SOS 救援页面，可重置屏幕使用时间权限以恢复访问。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Apae 会上传我的数据吗？</strong>
+      <p>不会。Apae 完全在本地运行，不连接任何服务器，不收集任何用户数据。</p>
+    </div>
+
+    <h2>联系我们</h2>
+    <p>如有其他问题或反馈，请发送邮件至：<a href="mailto:haogre@gmail.com">haogre@gmail.com</a></p>
+    <p>我们通常会在 1–3 个工作日内回复。</p>
+  </div>
+
+  <!-- English -->
+  <div id="en" class="lang-content">
+    <h1>Support</h1>
+    <p class="updated">Apae · iOS 17.0+</p>
+
+    <p>If you're having trouble with Apae, please check the FAQ below or contact us by email.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+      <strong>Why isn't Apae blocking apps?</strong>
+      <p>Apae requires Screen Time permission to function. Go to Settings → Screen Time and make sure Apae is authorized to use Family Controls.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>I enabled a rule but the app isn't blocked?</strong>
+      <p>Make sure the rule has target apps selected and that the current time falls within the rule's restrictions. Blocking may take up to 10 seconds to take effect.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>How do I remove all restrictions?</strong>
+      <p>Disable or delete the rule in the rules list to immediately remove the block.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>I forgot my PIN. What should I do?</strong>
+      <p>Go to Settings → SOS page to reset Screen Time permission and regain access.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Does Apae upload my data?</strong>
+      <p>No. Apae runs entirely on-device, connects to no servers, and collects no user data.</p>
+    </div>
+
+    <h2>Contact Us</h2>
+    <p>For other questions or feedback, email us at: <a href="mailto:haogre@gmail.com">haogre@gmail.com</a></p>
+    <p>We typically respond within 1–3 business days.</p>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(lang).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    const lang = navigator.language.startsWith('zh') ? 'zh' : 'en';
+    if (lang === 'en') switchLang('en');
+  </script>
+</body>
+</html>
