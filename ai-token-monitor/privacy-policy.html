@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - AI Token Monitor</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 24px;
+      color: #1d1d1f;
+      line-height: 1.7;
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    h2 { font-size: 18px; font-weight: 600; margin-top: 32px; }
+    p, li { font-size: 15px; color: #3a3a3c; }
+    .updated { font-size: 13px; color: #8e8e93; margin-bottom: 32px; }
+    a { color: #0071e3; text-decoration: none; }
+    .lang-switcher {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .lang-btn {
+      padding: 6px 16px;
+      border: 1px solid #d1d1d6;
+      border-radius: 20px;
+      background: none;
+      font-size: 14px;
+      cursor: pointer;
+      color: #3a3a3c;
+    }
+    .lang-btn.active {
+      background: #1d1d1f;
+      color: #fff;
+      border-color: #1d1d1f;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+  </style>
+</head>
+<body>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="switchLang('zh')">简体中文</button>
+    <button class="lang-btn" onclick="switchLang('en')">English</button>
+  </div>
+
+  <div id="zh" class="lang-content active">
+    <h1>隐私政策</h1>
+    <p class="updated">最后更新：2026 年 5 月 20 日</p>
+
+    <p>感谢您使用 <strong>AI Token Monitor</strong>。本隐私政策说明我们如何处理您的信息。</p>
+
+    <h2>我们不收集任何数据</h2>
+    <p>AI Token Monitor 不会收集、存储、传输或共享任何用户个人数据。应用的核心用量统计功能均在您的设备本地运行。</p>
+
+    <h2>本地数据访问</h2>
+    <p>为了显示用量统计，AI Token Monitor 会读取您主动授权访问的本地用量数据文件。数据处理仅在本机完成，开发者不会接收、上传或查看这些文件内容。</p>
+
+    <h2>App 内购买与订阅</h2>
+    <p>AI Token Monitor 提供 App 内购买项目，包括自动续订订阅和终身解锁。所有购买均通过 Apple App Store 处理，我们不收集、存储或处理任何支付信息。购买记录由 Apple 管理，受 Apple 隐私政策约束。</p>
+
+    <h2>第三方服务</h2>
+    <p>AI Token Monitor 不集成任何第三方分析、广告或追踪服务。</p>
+
+    <h2>儿童隐私</h2>
+    <p>我们不收集任何用户数据，包括儿童数据，符合《儿童在线隐私保护法》（COPPA）的相关要求。</p>
+
+    <h2>隐私政策变更</h2>
+    <p>如本政策有重大变更，我们将更新本页面顶部的日期。</p>
+
+    <h2>联系我们</h2>
+    <p>如有任何疑问，请发送邮件至：<a href="mailto:haogre@gmail.com">haogre@gmail.com</a></p>
+  </div>
+
+  <div id="en" class="lang-content">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: May 20, 2026</p>
+
+    <p>Thank you for using <strong>AI Token Monitor</strong>. This Privacy Policy explains how we handle your information.</p>
+
+    <h2>We Do Not Collect Any Data</h2>
+    <p>AI Token Monitor does not collect, store, transmit, or share any personal user data. The app's core usage monitoring features run locally on your device.</p>
+
+    <h2>Local Data Access</h2>
+    <p>To display usage statistics, AI Token Monitor reads local usage data files that you explicitly grant permission to access. All processing occurs on your device. The developer does not receive, upload, or view the contents of these files.</p>
+
+    <h2>In-App Purchases and Subscriptions</h2>
+    <p>AI Token Monitor offers in-app purchases, including an auto-renewable subscription and lifetime unlock. All purchases are processed through the Apple App Store. We do not collect, store, or process any payment information. Purchase records are managed by Apple and subject to Apple's Privacy Policy.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>AI Token Monitor does not integrate any third-party analytics, advertising, or tracking services.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>We do not collect any user data, including data from children, in compliance with the Children's Online Privacy Protection Act (COPPA).</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If we make material changes to this policy, we will update the date at the top of this page.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions, please email us at: <a href="mailto:haogre@gmail.com">haogre@gmail.com</a></p>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(lang).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    const lang = navigator.language.startsWith('zh') ? 'zh' : 'en';
+    if (lang === 'en') switchLang('en');
+  </script>
+</body>
+</html>
