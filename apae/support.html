@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,98 +45,116 @@
 </head>
 <body>
   <div class="lang-switcher">
-    <button class="lang-btn active" onclick="switchLang('zh')">简体中文</button>
-    <button class="lang-btn" onclick="switchLang('en')">English</button>
+    <button class="lang-btn active" data-lang="zh" aria-pressed="true" onclick="switchLang('zh')">简体中文</button>
+    <button class="lang-btn" data-lang="en" aria-pressed="false" onclick="switchLang('en')">English</button>
   </div>
 
   <!-- 简体中文 -->
-  <div id="zh" class="lang-content active">
+  <div id="zh" class="lang-content active" lang="zh-Hans">
     <h1>技术支持</h1>
-    <p class="updated">Apae · iOS 17.0+</p>
+    <p class="updated">Apae 2.0 · iOS / iPadOS 18.6+ · 更新于 2026 年 10 月 9 日</p>
 
     <p>如果你在使用 Apae 时遇到问题，请查阅以下常见问题，或通过邮件联系我们。</p>
 
     <h2>常见问题</h2>
 
     <div class="faq-item">
-      <strong>为什么 App 无法屏蔽应用？</strong>
-      <p>Apae 需要"屏幕使用时间"权限才能正常工作。请前往设置 → 屏幕使用时间，确认已授权 Apae 使用家庭控制功能。</p>
+      <strong>应该选择哪种设置方式？</strong>
+      <p>管理自己的设备时，选择“为自己设置”，使用普通 Apple 账户批准个人“屏幕使用时间”授权。个人模式无需家长 PIN，你可以自行撤销权限或删除 Apae。管理孩子的设备时，选择“为孩子设置”；设备需要登录家庭共享中的儿童 Apple 账户，由家长或监护人完成授权，再创建本机家长 PIN。儿童模式提供只读首页和普通“屏幕使用时间”防卸载保护。两种模式不会自动切换。</p>
     </div>
 
     <div class="faq-item">
-      <strong>规则已启用，但应用没有被锁定？</strong>
-      <p>请确认规则已选择目标应用，且当前时间在规则的限制范围内。屏蔽生效可能有约 10 秒的延迟。</p>
+      <strong>规则已开启，为什么应用没有隐藏？</strong>
+      <p>先确认已完成 Apple 的“屏幕使用时间”授权；如应用提示权限问题，请按提示检查系统设置。再检查规则是否选中了目标应用并已开启。隐藏时段需处于所选星期和时间范围内；跨午夜时段按开始的星期计算。每日时长限制需在有效星期累计用完所设时长才会隐藏。提醒阈值只更新 Apae 内的状态，不隐藏应用，也不发送系统通知。</p>
+      <p>系统回调可能延迟，Apae 不承诺固定秒数内生效。重新打开 Apae，查看“我的规则”或“家长管理”中的“运行状态”，按页面提示处理问题。重新授权后，需要重新选择各条规则的应用并开启规则。</p>
     </div>
 
     <div class="faq-item">
-      <strong>如何解除所有限制？</strong>
-      <p>在规则列表中关闭或删除对应规则即可立即解除屏蔽。</p>
+      <strong>如何让应用重新显示？</strong>
+      <p>在“我的规则”中关闭对应的隐藏时段或时长限制；儿童模式需由家长输入 PIN 进入“家长管理”后操作。关闭会保留规则，删除会移除规则。Apae 会重新评估全部有效规则；如果另一个时段或已用完的每日限额仍覆盖该应用，它会继续隐藏。要解除 Apae 对某个应用的所有隐藏限制，请检查并关闭所有覆盖它的规则，而不只是其中一条。</p>
     </div>
 
     <div class="faq-item">
       <strong>忘记了 PIN 码怎么办？</strong>
-      <p>请前往设置 → SOS 救援页面，可重置屏幕使用时间权限以恢复访问。</p>
+      <p>个人模式不使用家长 PIN。儿童模式的四位家长 PIN 由家长在 Apae 中创建，与 Apple 的“屏幕使用时间”密码不同。更改 PIN 需要先验证当前 PIN。如果忘记了仍有效的 PIN，Apae 没有自助“忘记 PIN”重置入口，请通过下方邮箱联系支持；我们无法读取或远程重置本机 PIN。多次输错后，请等待界面显示的锁定时间结束再重试。请勿在邮件中发送 PIN 或 Apple 账户密码。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>应用提示家长 PIN 需要重新设置怎么办？</strong>
+      <p>这表示已保存的 PIN 无法使用，与单纯忘记 PIN 不同。仅在 Apae 明确显示此提示时，由家长按应用内说明在系统设置关闭 Apae 的“屏幕使用时间”权限，回到 Apae 完成重新授权，再设置新的 PIN。重新授权会清空原规则的应用选择并关闭规则，需要重新选择应用后开启。如果提示 PIN 暂时不可用，请稍后重试；不要将撤销权限或卸载应用当作常规的忘记 PIN 处理方式。</p>
     </div>
 
     <div class="faq-item">
       <strong>Apae 会上传我的数据吗？</strong>
-      <p>不会。Apae 完全在本地运行，不连接任何服务器，不收集任何用户数据。</p>
+      <p>Apae 的规则、应用选择和限额状态保存在当前设备，家长 PIN 保存在设备钥匙串中。Apae 没有自己的账号、服务器、云同步或远程家长端；授权由 Apple 的系统界面处理。在另一台设备上联系家长不会自动批准本机加时间。通过邮件联系支持时，只需提供设备型号、系统版本、Apae 版本和具体问题，不要发送 PIN、账户密码或其他敏感信息。</p>
     </div>
 
     <h2>联系我们</h2>
     <p>如有其他问题或反馈，请发送邮件至：<a href="mailto:haogre@gmail.com">haogre@gmail.com</a></p>
-    <p>我们通常会在 1–3 个工作日内回复。</p>
+    <p>我们通常会在 1 至 3 个工作日内回复。</p>
   </div>
 
   <!-- English -->
-  <div id="en" class="lang-content">
+  <div id="en" class="lang-content" lang="en">
     <h1>Support</h1>
-    <p class="updated">Apae · iOS 17.0+</p>
+    <p class="updated">Apae 2.0 · iOS / iPadOS 18.6+ · Updated October 9, 2026</p>
 
     <p>If you're having trouble with Apae, please check the FAQ below or contact us by email.</p>
 
     <h2>FAQ</h2>
 
     <div class="faq-item">
-      <strong>Why isn't Apae blocking apps?</strong>
-      <p>Apae requires Screen Time permission to function. Go to Settings → Screen Time and make sure Apae is authorized to use Family Controls.</p>
+      <strong>Which setup mode should I choose?</strong>
+      <p>For your own device, choose Set Up for Myself and approve individual Screen Time access with a regular Apple Account. Self mode has no parent PIN, and you can revoke access or delete Apae. For a child's device, choose Set Up for a Child. The device must be signed in to a child Apple Account in Family Sharing; a parent or guardian authorizes access, then creates a local parent PIN. Child mode provides a read-only home and ordinary Screen Time app-removal protection. Apae does not switch between these modes automatically.</p>
     </div>
 
     <div class="faq-item">
-      <strong>I enabled a rule but the app isn't blocked?</strong>
-      <p>Make sure the rule has target apps selected and that the current time falls within the rule's restrictions. Blocking may take up to 10 seconds to take effect.</p>
+      <strong>Why aren't apps hidden when a rule is on?</strong>
+      <p>First, check that you completed Apple's Screen Time authorization. If Apae reports an access problem, follow its instructions to check system settings. Then make sure the rule includes the intended apps and is on. A hiding window applies on its selected days and during its time range; an overnight window belongs to the day it starts. A daily time limit hides apps only after their shared allowance is used on an active day. A warning threshold only updates the status in Apae; it does not hide apps or send a system notification.</p>
+      <p>System callbacks may be delayed, so Apae does not promise a fixed number of seconds. Reopen Apae and check Status in My Rules or Parent Management, then follow any instructions shown. After reauthorizing access, select apps again for each rule and turn the rules back on.</p>
     </div>
 
     <div class="faq-item">
-      <strong>How do I remove all restrictions?</strong>
-      <p>Disable or delete the rule in the rules list to immediately remove the block.</p>
+      <strong>How do I make an app visible again?</strong>
+      <p>Turn off the relevant hiding window or time limit in My Rules. In child mode, a parent must enter the PIN to open Parent Management first. Turning a rule off keeps its settings; deleting it removes the rule. Apae re-evaluates all active rules. If another window or an exhausted daily limit still covers the app, it remains hidden. To remove all Apae hiding restrictions for an app, check and turn off every rule that covers it.</p>
     </div>
 
     <div class="faq-item">
       <strong>I forgot my PIN. What should I do?</strong>
-      <p>Go to Settings → SOS page to reset Screen Time permission and regain access.</p>
+      <p>Self mode does not use a parent PIN. In child mode, the parent creates a four-digit PIN in Apae; it is separate from Apple's Screen Time passcode. Changing it requires the current PIN. If you forget a valid PIN, Apae has no self-service forgotten-PIN reset. Contact support below; we cannot read or remotely reset the PIN on your device. After repeated incorrect attempts, wait for the lockout shown in the app before trying again. Do not send your PIN or Apple Account password by email.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Apae says the parent PIN needs to be set up again. What now?</strong>
+      <p>This means the stored PIN is unusable, which is different from forgetting it. Only when Apae explicitly displays this message should a parent follow its instructions to turn off Apae's Screen Time access in system settings, return to Apae, authorize access again, and create a new PIN. Reauthorization clears the app selections in existing rules and turns those rules off; select apps again before turning the rules on. If the PIN is temporarily unavailable, try again later. Revoking access or reinstalling is not a routine forgotten-PIN recovery method.</p>
     </div>
 
     <div class="faq-item">
       <strong>Does Apae upload my data?</strong>
-      <p>No. Apae runs entirely on-device, connects to no servers, and collects no user data.</p>
+      <p>Apae stores rules, app selections, and limit status on the current device, and the parent PIN in the device's Keychain. Apae has no account service, server, cloud sync, or remote parent app. Apple handles authorization through its system interface. Contacting a parent on another device does not automatically approve extra time on this device. When emailing support, include only your device model, OS version, Apae version, and a description of the problem. Do not include PINs, account passwords, or other sensitive information.</p>
     </div>
 
     <h2>Contact Us</h2>
     <p>For other questions or feedback, email us at: <a href="mailto:haogre@gmail.com">haogre@gmail.com</a></p>
-    <p>We typically respond within 1–3 business days.</p>
+    <p>We typically respond within 1-3 business days.</p>
   </div>
 
   <script>
     function switchLang(lang) {
-      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
-      document.getElementById(lang).classList.add('active');
-      event.target.classList.add('active');
+      document.querySelectorAll('.lang-content').forEach(el => {
+        el.classList.toggle('active', el.id === lang);
+      });
+      document.querySelectorAll('.lang-btn').forEach(el => {
+        const isActive = el.dataset.lang === lang;
+        el.classList.toggle('active', isActive);
+        el.setAttribute('aria-pressed', String(isActive));
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
+      document.title = lang === 'zh' ? '技术支持 - Apae' : 'Support - Apae';
     }
 
     const lang = navigator.language.startsWith('zh') ? 'zh' : 'en';
-    if (lang === 'en') switchLang('en');
+    switchLang(lang);
   </script>
 </body>
 </html>
